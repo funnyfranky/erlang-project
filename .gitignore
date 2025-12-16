@@ -23,3 +23,5 @@ rebar3.crashdump
 rebar.lock
 
 *ModuleReport*
+
+.DS_Store
