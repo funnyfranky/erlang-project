@@ -2,18 +2,30 @@
 -behaviour(gen_statem).
 
 %% Public API
--export([start_link/0, start_link/1, move/1, reset/0, state/0]).
+-export([
+    start_link/0, 
+    start_link/1, 
+    move/1, 
+    reset/0, 
+    state/0
+]).
 
 %% gen_statem callbacks
--export([init/1, callback_mode/0, terminate/3]).
--export([playing/3, game_over/3]).
+-export([
+    init/1, 
+    callback_mode/0, 
+    terminate/3,
+
+    playing/3, 
+    game_over/3
+]).
 
 % Public API
 
 start_link() ->
     start_link(none).
 
-%% AI = none | x | o
+%% AI = none, x or o
 start_link(AIPlayer) ->
     gen_statem:start_link({local, ?MODULE}, ?MODULE, [AIPlayer], []).
 
